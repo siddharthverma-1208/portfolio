@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Siddharth Verma | Python & Django Developer (Lucknow)</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body data-theme="dark" data-mode="cyber">
+
+  <!-- Calm Background Music (Lofi) -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3"
+      type="audio/mpeg">
+  </audio>
+
+  <!-- Background Canvas -->
+  <canvas id="particle-canvas"></canvas>
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="logo">
+        <span class="logo-bracket">&lt;</span>SV<span class="logo-bracket"> /&gt;</span>
+        <span class="logo-dot"></span>
+      </a>
+
+      <nav class="nav-links" id="nav-menu">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#research" class="nav-link">Research</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Music + Volume Bar -->
+        <div class="music-controls">
+          <button class="icon-btn" id="music-toggle" title="Play Calm Music 🎵">🎵</button>
+          <input type="range" id="volume-slider" class="volume-slider" min="0" max="1" step="0.05" value="0.3"
+            title="Volume">
+        </div>
+
+        <!-- Theme & Mode Toggles -->
+        <button class="icon-btn" id="matrix-toggle" title="Toggle Matrix Mode">⚡</button>
+        <button class="icon-btn" id="theme-toggle" title="Toggle Theme">☀️</button>
+
+        <!-- Mobile Menu Button -->
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    <div class="hero-container">
+      <div class="hero-text-content">
+        <div class="status-badge pulse-red" title="Muskuraiye, aap Siddharth ke portfolio par hain!">
+          <span class="status-dot"></span> Status: 200 OK | Muskuraiye, Aap Lucknow Mein Hain! 🏛️✨
+        </div>
+
+        <h1 class="hero-title">
+          Hi, I'm <span class="gradient-text neon-red">Siddharth Verma</span>
+        </h1>
+        <h2 class="hero-subtitle">
+          Python / Django Developer
+        </h2>
+
+        <p class="hero-tagline">
+          Writing scalable backends by day, clutching multiplayer lobbies by night. <span class="highlight-yellow">💻
+            🎮</span>
+          <br /><i class="hinglish-quote">"Code aisa likho ki bugs bhi bole - Humse na ho payega!" 🐍🔥</i>
+        </p>
+
+        <!-- Interactive Dev Dashboard Widget -->
+        <div class="dev-dashboard">
+          <div class="dash-item">
+            <span class="dash-label">Chai Level:</span>
+            <div class="meter-bar">
+              <div class="meter-fill" id="coffee-meter" style="width: 85%;"></div>
+            </div>
+            <button id="btn-coffee" class="btn-mini" title="Click to drink Chai!">☕ Refuel</button>
+          </div>
+          <div class="dash-item">
+            <span class="dash-label">Base:</span>
+            <span class="dash-value glow-cyan">Lucknow, UP 🏛️</span>
+          </div>
+        </div>
+
+        <div class="hero-cta-group">
+          <a href="#contact" title="Hire Siddharth for your next project!">
+            <button id="btn-hire-me" class="btn btn-primary glow-btn">
+              💼 Hire Siddharth!
+            </button>
+          </a>
+
+          <!-- FUNNY RESUME DOWNLOAD BUTTON -->
+          <a href="https://drive.google.com/file/d/1KIbe2j0Wm5by_nS0b6n1fA1JhFgPr51e/view?usp=drive_link"
+            download="Siddharth_Verma_Resume.pdf" id="btn-resume"
+            title="⚠️ Warning: May cause immediate desire to hire me!">
+            <button class="btn btn-resume-glow">
+              📄 Steal My Resume (.pdf)
+            </button>
+          </a>
+
+          <a href="#projects" class="btn btn-outline">
+            🚀 View Projects
+          </a>
+          <button id="btn-excuse" class="btn btn-secondary" title="Dev Excuse Generator!">
+            🎲 Need an Excuse?
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Column: Profile & Interactive Terminal Window -->
+      <div class="hero-interactive">
+        <div class="profile-card-wrapper">
+          <div class="profile-frame">
+            <img src="https://lh3.googleusercontent.com/d/19ddH-nOsslAzdCH_LaMbP94XHSCQ1S6k"
+              alt="Siddharth Verma Profile Picture" class="profile-img" />
+            <div class="profile-badge" title="⚠️ Pythonic Developer from Lucknow">🐍 Lucknowi Pythonist</div>
+          </div>
+        </div>
+
+        <!-- Terminal Widget -->
+        <div class="terminal-card" id="terminal-card" title="Click inside terminal to type commands!">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span class="terminal-title">siddharth@lucknow-devbox:~ (zsh)</span>
+          </div>
+          <div class="terminal-body" id="terminal-body">
+            <p class="term-line"><span class="term-green">siddharth@lucknow</span>:<span class="term-blue">~</span>$
+              help</p>
+            <p class="term-response">Try: <span class="term-cyan">whoami</span>, <span
+                class="term-yellow">skills</span>, <span class="term-purple">kd</span>, <span
+                class="term-green">matrix</span>, <span class="term-red">sudo rm -rf /</span>, <span
+                class="term-cyan">clear</span></p>
+            <div id="terminal-output"></div>
+            <div class="terminal-input-row">
+              <span class="term-prompt">siddharth@lucknow:~$ </span>
+              <input type="text" id="terminal-input" placeholder="try 'kd' or 'skills'..." autocomplete="off"
+                spellcheck="false" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Developer Excuses / Notifications Toast -->
+  <div id="excuse-toast" class="toast-popup hidden">
+    <div class="toast-icon">💡</div>
+    <div class="toast-content">
+      <strong>Dev Message:</strong>
+      <p id="excuse-text">Mere local system pe mast chal raha hai bhai!</p>
+    </div>
+    <button id="close-toast">&times;</button>
+  </div>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-grid">
+        <div class="about-text card highlight-hover">
+          <p>
+            Namaste! 🙏 I'm <strong>Siddharth Verma</strong>, a passionate <span class="text-cyan">Python &amp; Django
+              Backend Developer</span> based out of the city of Nawabs, <strong>Lucknow</strong> 🏛️.
+          </p>
+          <p>
+            Professionally, I specialize in architecting high-performance RESTful APIs, optimizing complex databases,
+            and conducting AI research. I love writing clean, scalable, production-ready code.
+          </p>
+          <p>
+            Personally? I'm just a guy trying to center <code>&lt;div&gt;</code>s without crying and keeping my gaming
+            Kill/Death ratio above 1.0. When I'm not debugging or figuring out how to exit Vim, you'll find me clutching
+            multiplayer lobbies, binge-watching Sci-Fi movies, or hunting down the absolute best kebabs in Lucknow.
+          </p>
+
+          <!-- Personal Hobbies -->
+          <div class="hobbies-box">
+            <h4 class="hobbies-title">🎯 Beyond Code &amp; Coffee:</h4>
+            <div class="hobbies-tags">
+              <span class="hobby-tag">🎮 FPS &amp; Strategy Gamer</span>
+              <span class="hobby-tag">🎬 Sci-Fi Movie Buff</span>
+              <span class="hobby-tag">✈️ Explorer &amp; Traveler</span>
+              <span class="hobby-tag">🍕 Lucknow Food Connoisseur</span>
+            </div>
+          </div>
+
+          <div class="fun-fact-box">
+            <span class="fun-icon">🤠</span>
+            <div>
+              <strong>Dev Mantra:</strong> <i>"Chai ☕, Code 💻, aur Lucknow 🏛️ — In teen cheezon se apni life chalti
+                hai!"</i>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-stats-grid">
+          <div class="stat-card cyan-glow">
+            <span class="stat-icon">🎓</span>
+            <span class="stat-num">MCA</span>
+            <span class="stat-label">BBDU (2025–2027)</span>
+          </div>
+          <div class="stat-card red-glow">
+            <span class="stat-icon">💻</span>
+            <span class="stat-num">4+</span>
+            <span class="stat-label">Internships &amp; Roles</span>
+          </div>
+          <div class="stat-card yellow-glow">
+            <span class="stat-icon">🎮</span>
+            <span class="stat-num">Gamer</span>
+            <span class="stat-label">Clutching 1v4s</span>
+          </div>
+          <div class="stat-card green-glow">
+            <span class="stat-icon">🤖</span>
+            <span class="stat-num">CYRUS</span>
+            <span class="stat-label">AI Project Built</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section (Bento Box Grid) -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="section-title">Technical Arsenal</h2>
+      <p class="section-subtitle">Technologies I use to build scalable digital solutions.</p>
+
+      <div class="skills-wrapper">
+
+        <!-- Languages -->
+        <div class="skill-category-card border-red grid-col-2">
+          <h3 class="category-header"><span class="cat-icon">🔤</span> Programming Languages</h3>
+          <div class="skills-flex">
+            <div class="skill-badge" data-tooltip="Sabse pyari bhasha 🐍">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+                alt="Python" />
+              <span>Python</span>
+            </div>
+            <div class="skill-badge" data-tooltip="Web interactivity master ⚡">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                alt="JavaScript" />
+              <span>JavaScript</span>
+            </div>
+            <div class="skill-badge" data-tooltip="Fundamental programming ⚙️">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" />
+              <span>C</span>
+            </div>
+            <div class="skill-badge" data-tooltip="Semantic web skeleton 🌐">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+                alt="HTML5" />
+              <span>HTML5</span>
+            </div>
+            <div class="skill-badge" data-tooltip="Styling &amp; animations 🎨">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" />
+              <span>CSS3</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frameworks -->
+        <div class="skill-category-card border-green grid-col-2">
+          <h3 class="category-header"><span class="cat-icon">⚙️</span> Frameworks &amp; Web Tech</h3>
+          <div class="skills-flex">
+            <div class="skill-badge" data-tooltip="Batteries-included web framework 🔋">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg"
+                class="svg-white" alt="Django" />
+              <span>Django</span>
+            </div>
+            <div class="skill-badge" data-tooltip="REST API Development 🌐">
+              <span class="custom-icon text-cyan">⚡</span>
+              <span>Django REST Framework</span>
+            </div>
+            <div class="skill-badge" data-tooltip="Fast UI styling 📱">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg"
+                alt="Bootstrap" />
+              <span>Bootstrap</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Databases -->
+        <div class="skill-category-card border-cyan grid-col-2">
+          <h3 class="category-header"><span class="cat-icon">🗄️</span> Databases &amp; Storage</h3>
+          <div class="skills-flex">
+            <div class="skill-badge" data-tooltip="Relational Database Management 🗃️">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg"
+                alt="MySQL" />
+              <span>MySQL</span>
+            </div>
+            <div class="skill-badge" data-tooltip="Lightweight database 📁">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg"
+                alt="SQLite" />
+              <span>SQLite</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="skill-category-card border-purple grid-col-2">
+          <h3 class="category-header"><span class="cat-icon">🛠️</span> Tools &amp; Environment</h3>
+          <div class="skills-flex">
+            <div class="skill-badge" data-tooltip="Version Control 🌿">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" />
+              <span>Git</span>
+            </div>
+            <div class="skill-badge" data-tooltip="Code Hosting &amp; Collaboration ☁️">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
+                class="svg-white" alt="GitHub" />
+              <span>GitHub</span>
+            </div>
+            <div class="skill-badge" data-tooltip="Coding Workplace 💻">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg"
+                alt="VS Code" />
+              <span>VS Code</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Secret Powers -->
+        <div class="skill-category-card border-yellow grid-col-4">
+          <h3 class="category-header"><span class="cat-icon">🧠</span> Core Concepts &amp; Secret Powers</h3>
+          <div class="skills-flex">
+            <div class="skill-badge secret-badge" data-tooltip="Object-Oriented Programming Mastery">
+              <span>🧩 OOPs Concepts</span>
+            </div>
+            <div class="skill-badge secret-badge" data-tooltip="10 second solution on Google">
+              <span>🔍 Advanced Googling</span>
+            </div>
+            <div class="skill-badge secret-badge" data-tooltip="ESC + :wq! (Asaan hai re baba!)">
+              <span>🛑 Exiting Vim</span>
+            </div>
+            <div class="skill-badge secret-badge" data-tooltip="Bug fixing & pattern logic">
+              <span>🧠 Logic Building</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="section">
+    <div class="container">
+      <h2 class="section-title">Work &amp; Internship Experience</h2>
+      <div class="timeline">
+
+        <!-- Role 1 -->
+        <div class="timeline-item left">
+          <div class="timeline-content card">
+            <div class="badge-tag red-badge">Internship</div>
+            <h3 class="exp-title">Python Developer Intern</h3>
+            <h4 class="exp-company">Alstonia Consulting LLP</h4>
+            <p class="exp-date">📅 May 2025 – Jul 2025</p>
+            <ul class="exp-list">
+              <li>Engineered scalable backend modules using Python and Django frameworks.</li>
+              <li>Designed RESTful APIs and optimized database models for faster server response times.</li>
+              <li>Identified, isolated, and fixed complex backend performance bottlenecks.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Role 2 -->
+        <div class="timeline-item right">
+          <div class="timeline-content card">
+            <div class="badge-tag green-badge">Internship</div>
+            <h3 class="exp-title">Software Application Development Intern</h3>
+            <h4 class="exp-company">Analyse Infotech</h4>
+            <p class="exp-date">📅 Feb 2025 – May 2025</p>
+            <ul class="exp-list">
+              <li>Built web applications using Python, Django, HTML, CSS, and JavaScript.</li>
+              <li>Implemented secure user authentication systems and permission controls.</li>
+              <li>Participated in full software development lifecycle from schema design to deployment.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Role 3 -->
+        <div class="timeline-item left">
+          <div class="timeline-content card">
+            <div class="badge-tag cyan-badge">Remote Internship</div>
+            <h3 class="exp-title">Data Science Intern</h3>
+            <h4 class="exp-company">EVOASTRA VENTURES PVT LTD</h4>
+            <p class="exp-date">📅 Jul 2024 – Aug 2024</p>
+            <ul class="exp-list">
+              <li>Performed exploratory data analysis and data preprocessing using Python data libraries.</li>
+              <li>Analyzed dataset patterns to generate predictive insights and data visualization charts.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Role 4 -->
+        <div class="timeline-item right">
+          <div class="timeline-content card">
+            <div class="badge-tag yellow-badge">Freelance / Translation</div>
+            <h3 class="exp-title">Freelance Hindi Language Editor / Translator</h3>
+            <h4 class="exp-company">IIT Kanpur</h4>
+            <p class="exp-date">📅 Jan 2023 – Dec 2023</p>
+            <ul class="exp-list">
+              <li>Edited and translated complex technical literature and educational content into Hindi.</li>
+              <li>Maintained technical accuracy while translating scientific concepts for academic publications.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid">
+
+        <div class="project-card card glow-border-purple">
+          <div class="project-header">
+            <span class="project-icon">🤖</span>
+            <span class="project-type">AI &amp; Automation</span>
+          </div>
+          <h3 class="project-title">CYRUS — Smart AI Assistant Engine</h3>
+          <p class="project-desc">
+            An intelligent AI virtual assistant built using Python that automates desktop workflows, processes voice
+            commands, and handles custom system tasks seamlessly.
+          </p>
+          <div class="project-tech-tags">
+            <span class="tech-tag tag-python">Python</span>
+            <span class="tech-tag tag-django">AI / NLP</span>
+            <span class="tech-tag tag-db">Speech Recog</span>
+          </div>
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="repo-btn">
+            <span>View Repository 🔗</span>
+          </a>
+        </div>
+
+        <div class="project-card card glow-border-red">
+          <div class="project-header">
+            <span class="project-icon">🏨</span>
+            <span class="project-type">Full Stack System</span>
+          </div>
+          <h3 class="project-title">Motel Operations Management System</h3>
+          <p class="project-desc">
+            A full-stack web application engineered to automate hotel operations, guest room bookings, check-in/out
+            workflows, and billing management.
+          </p>
+          <div class="project-tech-tags">
+            <span class="tech-tag tag-python">Python</span>
+            <span class="tech-tag tag-django">Django</span>
+            <span class="tech-tag tag-db">MySQL</span>
+          </div>
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="repo-btn">
+            <span>View Repository 🔗</span>
+          </a>
+        </div>
+
+        <div class="project-card card glow-border-cyan">
+          <div class="project-header">
+            <span class="project-icon">🚍</span>
+            <span class="project-type">Fleet Logistics</span>
+          </div>
+          <h3 class="project-title">Film Fleet Management System</h3>
+          <p class="project-desc">
+            A logistics application designed to track production vehicle schedules, maintenance logs, driver
+            allocations, and fuel management for film crews.
+          </p>
+          <div class="project-tech-tags">
+            <span class="tech-tag tag-python">Python</span>
+            <span class="tech-tag tag-django">Django</span>
+            <span class="tech-tag tag-db">SQLite</span>
+          </div>
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="repo-btn">
+            <span>View Repository 🔗</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Section -->
+  <section id="research" class="section">
+    <div class="container">
+      <h2 class="section-title">Research Publication</h2>
+      <div class="research-card card border-gold">
+        <div class="research-badge">IEEE Conference Paper</div>
+        <h3 class="research-title">Traffic Control System Using Artificial Intelligence</h3>
+        <p class="research-authors"><strong>Author:</strong> Siddharth Verma</p>
+        <p class="research-status">
+          <strong>Status:</strong> Accepted for Presentation at the <strong>2025 IEEE 12th IAS Global Conference on
+            Emerging Trends in Electrical, Electronics &amp; Computing Technologies (ICETECT-2025)</strong>.
+        </p>
+        <p class="research-abstract">
+          <strong>Abstract:</strong> Explores computer vision and dynamic AI algorithms to regulate traffic signal
+          timings based on real-time vehicle density analytics to optimize traffic flow and cut carbon emissions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="section">
+    <div class="container">
+      <h2 class="section-title">Education &amp; Schooling</h2>
+      <p class="section-subtitle">From school benches to writing backend architectures — the journey so far 🎓</p>
+
+      <div class="education-grid centered-grid">
+        <!-- PG MCA -->
+        <div class="edu-card card border-purple">
+          <div class="edu-icon-lg">🎯</div>
+          <div class="edu-year">2025 – 2027</div>
+          <h3 class="edu-degree">Master of Computer Applications (MCA)</h3>
+          <h4 class="edu-school">Babu Banarsi Das University, Lucknow</h4>
+          <p class="edu-details">Diving deep into Advanced Backend Systems, Database Architecture, and building
+            production-ready applications.</p>
+          <p class="edu-fun-goal"><strong>Goal:</strong> Write code so clean that future-me says "Shukriya bro! 🙏"</p>
+        </div>
+
+        <!-- UG BCA -->
+        <div class="edu-card card border-cyan">
+          <div class="edu-icon-lg">💻</div>
+          <div class="edu-year">2022 – 2025</div>
+          <h3 class="edu-degree">Bachelor of Computer Applications (BCA)</h3>
+          <h4 class="edu-school">Babu Banarsi Das University, Lucknow</h4>
+          <p class="edu-details">Yahi se asli coding wali life shuru hui — OOP, Web Development, Databases, and
+            late-night debugging sessions.</p>
+          <p class="edu-fun-goal">Foundation strong banayi, ab backend pe full focus 🎯</p>
+        </div>
+
+        <!-- Class 12 -->
+        <div class="edu-card card border-yellow">
+          <div class="edu-icon-lg">📊</div>
+          <div class="edu-year">2022</div>
+          <h3 class="edu-degree">Class XII (Senior Secondary)</h3>
+          <h4 class="edu-school">Lucknow Public School, Lucknow</h4>
+          <p class="edu-details">Completed Class 12th and officially entered the "ab toh engineering / coding hi karni
+            hai" phase of life.</p>
+        </div>
+
+        <!-- Class 10 -->
+        <div class="edu-card card border-red">
+          <div class="edu-icon-lg">🏫</div>
+          <div class="edu-year">2020</div>
+          <h3 class="edu-degree">Class X (High School)</h3>
+          <h4 class="edu-school">Lucknow Public School, Lucknow</h4>
+          <p class="edu-details">Completed Class 10th — the very first solid academic checkpoint before the tech journey
+            began.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">Have a project, job opportunity, or want to connect? Reach out directly!</p>
+
+      <div class="contact-grid">
+        <a href="mailto:siddharthverma1208@gmail.com" class="contact-card card glow-border-red">
+          <div class="contact-card-icon">✉️</div>
+          <h3>Email Me</h3>
+          <p>siddharthverma1208@gmail.com</p>
+          <span class="contact-link-text">Send Email &rarr;</span>
+        </a>
+        <a href="https://www.instagram.com/__thisis_sid" target="_blank" rel="noopener noreferrer"
+          class="contact-card card glow-border-pink">
+          <div class="contact-card-icon">
+            <svg class="contact-svg instagram-icon" viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </div>
+          <h3>Instagram</h3>
+          <p>Follow my journey &amp; reels</p>
+          <span class="contact-link-text">Visit Instagram &rarr;</span>
+        </a>
+        <a href="https://github.com/siddharthverma-1208/" target="_blank" rel="noopener noreferrer"
+          class="contact-card card glow-border-purple">
+          <div class="contact-card-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
+              class="svg-white contact-svg" alt="GitHub" />
+          </div>
+          <h3>GitHub Profile</h3>
+          <p>Check out my repos &amp; code</p>
+          <span class="contact-link-text">Explore Repos &rarr;</span>
+        </a>
+        <a href="https://www.linkedin.com/in/siddharth-verma1208/" target="_blank" rel="noopener noreferrer"
+          class="contact-card card glow-border-cyan">
+          <div class="contact-card-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg"
+              class="contact-svg" alt="LinkedIn" />
+          </div>
+          <h3>LinkedIn Profile</h3>
+          <p>Let's connect professionally</p>
+          <span class="contact-link-text">Connect &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p class="footer-text">
+        Built with HTML, CSS, JavaScript, and lots of Chai ☕ in Lucknow 🏛️.
+      </p>
+      <p class="footer-copy">&copy; 2026 Siddharth Verma. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
