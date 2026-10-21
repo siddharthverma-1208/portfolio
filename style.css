@@ -1602,3 +1602,37 @@ body {
   box-shadow: 0 0 15px var(--neon-yellow-glow);
   color: var(--neon-yellow);
 }
+
+/* ==========================================================================
+   HERO TITLE ALIAS (C.Y.R.U.S.) STYLING FIX
+   ========================================================================== */
+.hero-alias {
+  display: block;
+  font-size: 0.55em;
+  /* Proportional & sleek font size */
+  font-family: var(--font-code);
+  font-weight: 700;
+  margin-top: 0.2rem;
+  letter-spacing: 1px;
+}
+
+.aka-text {
+  color: var(--text-muted);
+  font-weight: 400;
+  font-size: 0.85em;
+  margin-right: 6px;
+}
+
+.cyrus-gradient {
+  background: linear-gradient(135deg, var(--neon-yellow), var(--neon-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.4));
+}
+
+[data-mode="matrix"] .cyrus-gradient {
+  background: var(--neon-green);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: var(--neon-green);
+  text-shadow: 0 0 10px var(--neon-green-glow);
+}
