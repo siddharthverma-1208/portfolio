@@ -1566,3 +1566,39 @@ body {
   box-shadow: 0 0 15px var(--neon-yellow-glow);
   color: var(--neon-yellow);
 }
+
+/* ==========================================================================
+   RESEARCH SECTION POLISH
+   ========================================================================== */
+.research-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.research-meta-date {
+  font-family: var(--font-code);
+  font-size: 0.82rem;
+  color: var(--neon-cyan);
+}
+
+.research-journal {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.repo-btn.btn-doi {
+  border-color: rgba(255, 204, 0, 0.4);
+  color: var(--neon-yellow);
+}
+
+.repo-btn.btn-doi:hover {
+  background: rgba(255, 204, 0, 0.15);
+  border-color: var(--neon-yellow);
+  box-shadow: 0 0 15px var(--neon-yellow-glow);
+  color: var(--neon-yellow);
+}
