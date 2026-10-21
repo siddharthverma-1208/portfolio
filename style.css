@@ -813,7 +813,7 @@ body {
 .about-text p {
   margin-bottom: 1.2rem;
   color: var(--text-secondary);
-  text-align: justify;
+  text-align: center;
   text-justify: inter-word;
   line-height: 1.7;
 }
@@ -1553,4 +1553,16 @@ body {
 [data-mode="matrix"] .btn-resume-glow:hover {
   background: var(--neon-green);
   color: #020b04;
+}
+
+.repo-btn.btn-wip {
+  border-color: rgba(255, 204, 0, 0.4);
+  color: var(--neon-yellow);
+}
+
+.repo-btn.btn-wip:hover {
+  background: rgba(255, 204, 0, 0.15);
+  border-color: var(--neon-yellow);
+  box-shadow: 0 0 15px var(--neon-yellow-glow);
+  color: var(--neon-yellow);
 }

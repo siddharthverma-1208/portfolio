@@ -356,3 +356,11 @@ if (resumeBtn) {
     showToast("📄 Resume Downloaded! Guaranteed 0% Malware, 100% Talent & Lucknowi Swag! 🐍✨");
   });
 }
+
+// --- CYRUS WIP BUTTON TOAST ---
+const cyrusBtn = document.getElementById('cyrus-wip-btn');
+if (cyrusBtn) {
+  cyrusBtn.addEventListener('click', () => {
+    showToast("🚧 CYRUS is currently cooking! Final code polishing in progress 🛠️");
+  });
+}
